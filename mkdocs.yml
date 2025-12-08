@@ -24,6 +24,38 @@ theme:
 markdown_extensions:
   - markdown.extensions.extra # 包含了删除线
   - pymdownx.mark             # 开启高亮功能
+markdown_extensions:
+  # 1. 基础扩展包 (包含删除线、脚注等)
+  - markdown.extensions.extra:
+
+  # 2. PyMdown Extensions (Material主题的专业增强包)
+  - pymdownx.betterem:
+      smart_enable: all     # 智能强调：用于修复斜体、粗体的嵌套问题
+  
+  # 3. 增强代码块 (Code Blocks) 功能
+  - pymdownx.highlight:     # 代码高亮
+      anchor_linenums: true # 代码行号锚点
+  - pymdownx.superfences    # 高级代码块 (代码块内嵌套代码块)
+  - pymdownx.inlinehilite   # 行内代码高亮 (行内int a=0;)
+
+  # 4. 文本格式增强
+  - pymdownx.mark           # 文本高亮 (==高亮==)
+  - pymdownx.tilde          # 下划线和上下标 (~下划线~, x^2^, CuSO~4~)
+  - pymdownx.details        # 增强的折叠框
+  - pymdownx.caret          # 上下标 (x^^2^^, 但建议使用pymdownx.tilde)
+  - pymdownx.keys           # 键盘按键提示
+  - pymdownx.tasklist:      # 任务列表 (复选框)
+      custom_checkbox: true
+
+  # 5. 链接和目录
+  - toc:                    # 目录 (Table of Contents)
+      permalink: true       # 允许点击标题生成永久链接
+      
+  # 6. 表情符号和数学公式
+  - pymdownx.emoji:         # 表情符号支持 (:joy:, 🤣)
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.arithmatex     # LaTeX 数学公式 ($\color{#5AA}{...}$)
 
 nav:
   - 首页: index.md
