@@ -1,18 +1,8 @@
-你好！
+# 你好！
+
 这是我宏伟计划的第一部分。
 
-阿斯顿
+我计划寒假时完成！
 
-asdlk1asd
+## 敬请期待！
 
-asdlkjald
-
-dasldklkj
-
-asldkmlm\
-
-你好
-
-hello
-
-(｡･∀･)ﾉﾞ嗨

@@ -2,9 +2,27 @@ site_name: 小书
 theme:
   name: material
   language: zh
+  palette:
+    # 1. 日间模式 (用户设备设置为亮色主题时默认启用)
+    - media: "(prefers-color-scheme: light)"
+      scheme: default         # 使用亮色主题
+      primary: teal           # 主色调：青色 
+      accent: lime            # 强调色：柠檬绿
+      toggle:
+        icon: material/brightness-7 # 亮色图标
+        name: 切换至深色模式
 
+    # 2. 深色模式 (用户设备设置为深色主题时默认启用)
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate           # 使用深色主题
+      primary: blue grey      # 主色调：蓝灰色
+      accent: amber           # 强调色：琥珀色
+      toggle:
+        icon: material/brightness-4 # 深色图标
+        name: 切换至亮色模式
 nav:
   - 首页: index.md
   - 学习经验: first.md
-  - (留作未来扩展): about.md # 可以在 docs 文件夹内创建一个 about.md 占位
+  - (留作未来扩展): about.md
+  - 测试页: test.md
 
