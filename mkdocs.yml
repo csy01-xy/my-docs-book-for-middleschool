@@ -19,65 +19,63 @@ theme:
       accent: amber           # 强调色：琥珀色
       toggle:
         icon: material/brightness-4 # 深色图标
-        name: 切换至亮色模式
+        name: 切换至亮色模式s
+
+
+site_url: https://csy0101.gitee.io/ptyz/ 
+repo_url: https://gitee.com/csy0101/ptyz
+remote_name: gitee
+branch: gh-pages
+site_dir: site
+
+
+
+
 
 markdown_extensions:
-  - markdown.extensions.extra # 包含了删除线
-  - pymdownx.mark             # 开启高亮功能
-markdown_extensions:
-  # 1. 基础扩展包 (包含删除线、脚注等)
-  - markdown.extensions.extra:
+  # 1. 基础语法增强 (解决表格、脚注、删除线、列表问题)
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - admonition
 
-  # 2. PyMdown Extensions (Material主题的专业增强包)
+  # 2. PyMdown 扩展 (解决高亮、上下标、键盘按键等问题)
   - pymdownx.betterem:
-      smart_enable: all     # 智能强调：用于修复斜体、粗体的嵌套问题
-  
-  # 3. 增强代码块 (Code Blocks) 功能
-  - pymdownx.highlight:     # 代码高亮
-      anchor_linenums: true # 代码行号锚点
-  - pymdownx.superfences    # 高级代码块 (代码块内嵌套代码块)
-  - pymdownx.inlinehilite   # 行内代码高亮 (行内int a=0;)
-
-  # 4. 文本格式增强
-  - pymdownx.mark           # 文本高亮 (==高亮==)
-  - pymdownx.tilde          # 下划线和上下标 (~下划线~, x^2^, CuSO~4~)
-  - pymdownx.details        # 增强的折叠框
-  - pymdownx.caret          # 上下标 (x^^2^^, 但建议使用pymdownx.tilde)
-  - pymdownx.keys           # 键盘按键提示
-  - pymdownx.tasklist:      # 任务列表 (复选框)
+      smart_enable: all
+  - pymdownx.caret:             # 开启上标 (^text^)
+  - pymdownx.mark:              # 开启高亮 (==text==)
+  - pymdownx.tilde:             # 开启下标 (~text~) 和 删除线 (~~text~~)
+  - pymdownx.keys               # 键盘按键 (++ctrl+c++)
+  - pymdownx.tasklist:          # 任务列表 [x]
       custom_checkbox: true
-
-  # 5. 链接和目录
-  - toc:                    # 目录 (Table of Contents)
-      permalink: true       # 允许点击标题生成永久链接
-      
-  # 6. 表情符号和数学公式
-  - pymdownx.emoji:         # 表情符号支持 (:joy:, 🤣)
+  - pymdownx.superfences:       # 解决代码块、多层嵌套问题 (关键！)
+      preserve_tabs: true
+  - pymdownx.details            # 折叠详情页 (??? note)
+  - pymdownx.tabbed:            # 选项卡
+      alternate_style: true
+  - pymdownx.emoji:             # 表情支持 :smile:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.arithmatex     # LaTeX 数学公式 ($\color{#5AA}{...}$)
-
-markdown_extensions:
-  # 1. 基础增强和列表修复
-  - markdown.extensions.extra  # 包含删除线、表格、脚注、定义列表、属性列表
-  - markdown.extensions.footnotes # 确保脚注完全独立启用
-  - markdown.extensions.sane_lists # 修复列表嵌套和格式问题
-  
-  # 2. PyMdown Extensions (Material主题的专业增强包)
-  - pymdownx.mark              # 启用高亮 (==高亮==)
-  - pymdownx.tilde             # 启用上下标 (x^2^, CuSO~4~)
-  - pymdownx.superfences       # 增强代码块和块嵌套
-  - pymdownx.inlinehilite      # 行内代码高亮
-  - pymdownx.highlight:        # 代码块高亮
+  - pymdownx.highlight:         # 代码高亮增强
       anchor_linenums: true
-  - pymdownx.keys              # 启用键盘按键提示
-  - pymdownx.arithmatex:       # 启用 LaTeX 数学公式渲染 (支持颜色代码)
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite       # 行内代码高亮
+
+  # 3. 数学公式支持 (解决 LaTeX 问题)
+  - pymdownx.arithmatex:
       generic: true
-  - pymdownx.emoji:           # 表情符号支持
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
-
+# 4. 必须添加的 JavaScript (让数学公式生效的关键)
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 nav:
   - 首页: index.md
   - 测试页: test.md
